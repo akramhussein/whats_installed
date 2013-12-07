@@ -11,6 +11,7 @@ Simple Bash script to find out what packages you've polluted your machine with.
 * Homebrew
 * PIP
 * NPM
+* Mac Ports
 
 ### Usage
 

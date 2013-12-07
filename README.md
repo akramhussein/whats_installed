@@ -1,4 +1,21 @@
-whats_installed
-===============
+#What's Installed
 
 Simple Bash script to find out what packages you've polluted your machine with.
+
+### Requires:
+
+* Bash 4
+
+### Currently supports:
+
+* Homebrew
+* PIP
+* NPM
+
+### Usage
+
+Generate .txt files for each package manager:
+    $ ./whats_installed.sh
+
+Clean up generate files"
+    $ ./whats_installed.sh --cleanup

@@ -15,7 +15,9 @@ Simple Bash script to find out what packages you've polluted your machine with.
 ### Usage
 
 Generate .txt files for each package manager:
+
     $ ./whats_installed.sh
 
-Clean up generate files"
+Clean up generated files:
+
     $ ./whats_installed.sh --cleanup

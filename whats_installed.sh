@@ -2,8 +2,19 @@
 #
 # Bash script to check what applications are installed on your machine.
 # Requires Bash 4
-# 
+#
 
+# associative array to hold application and command to list installed packages
+# apps[application]=command
+declare -A apps
+
+# packages and list commands
+apps[brew]=list
+apps[pip]=freeze
+apps[npm]=list
+apps[ports]=installed
+
+# runs command only if it's available
 if_exists()
 {
   if  command -v "$1" > /dev/null; then
@@ -12,21 +23,13 @@ if_exists()
   fi
 }
 
+# removes .txt file for app
 clean_up()
 {
   if command -v "$1" > /dev/null; then
     rm -rf $1.txt
   fi
 }
-
-# associate array to hold application and command to list installed packages
-# apps[application]=command
-declare -A apps
-
-# all the paclages
-apps[brew]=list
-apps[pip]=freeze
-apps[npm]=list
 
 # should we remove the .txt files or generate them?
 if [ "$1" == "--cleanup" ]; then

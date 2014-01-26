@@ -4,23 +4,23 @@
 # Requires Bash 4
 #
 
-# associative array to hold application and command to list installed packages
-# apps[application]=command
-declare -A apps
+# import package manager array
+. pm_list.txt
 
-# packages and list commands
-apps[brew]=list
-apps[pip]=freeze
-apps[npm]=list
-apps[ports]=installed
-apps[gem]=list
+# save as single list?
+single_list=false
 
 # runs command only if it's available
 if_exists()
 {
   if  command -v "$1" > /dev/null; then
     echo ">> Checking $1"
-    $1 $2 > $1.txt
+    if [ $single_list ]; then
+      echo -e "\n$1\n===============\n" >> full_list.txt
+      $1 $2 >> full_list.txt
+    else
+      $1 $2 > $1.txt
+    fi
   fi
 }
 
@@ -40,6 +40,9 @@ if [ "$1" == "--cleanup" ]; then
     clean_up "$i"
   done
 else
+  if [ "$1" == "--full_list" ]; then
+    single_list=true
+  fi
   echo "Let's find out what junk is on your machine..."
 
   for i in "${!apps[@]}"

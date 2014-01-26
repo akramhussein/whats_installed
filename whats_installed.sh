@@ -13,6 +13,7 @@ apps[brew]=list
 apps[pip]=freeze
 apps[npm]=list
 apps[ports]=installed
+apps[gem]=list
 
 # runs command only if it's available
 if_exists()

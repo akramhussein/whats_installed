@@ -5,7 +5,7 @@
 #
 
 # import package manager array
-. pm_list.txt
+. pm_list
 
 # save as single list?
 single_list=false

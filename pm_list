@@ -1,0 +1,12 @@
+# List of package managers
+
+# associative array to hold application and command to list installed packages
+# apps[application]=command
+declare -A apps
+
+# packages and list commands
+apps[brew]=list
+apps[pip]=freeze
+apps[npm]=list
+apps[ports]=installed
+apps[gem]=list

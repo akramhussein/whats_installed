@@ -20,6 +20,10 @@ Generate .txt files for each package manager:
 
     $ ./whats_installed.sh
 
+Generate one full list of packages:
+
+    $ ./whats_installed.sh --full_list
+
 Clean up generated files:
 
     $ ./whats_installed.sh --cleanup

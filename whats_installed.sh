@@ -8,7 +8,7 @@
 . pm_list
 
 # save as single list?
-single_list=false
+full_list=false
 
 # runs command only if it's available
 if_exists()
@@ -41,7 +41,7 @@ if [ "$1" == "--cleanup" ]; then
   done
 else
   if [ "$1" == "--full_list" ]; then
-    single_list=true
+    full_list=true
   fi
   echo "Let's find out what junk is on your machine..."
 
